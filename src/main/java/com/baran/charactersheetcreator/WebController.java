@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class WebController {
-    @GetMapping(value = "/Hello")
+    @GetMapping("/Hello")
     @ResponseBody
     public String getRoot() {
         return "Hello World";
