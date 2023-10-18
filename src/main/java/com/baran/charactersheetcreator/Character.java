@@ -1,6 +1,6 @@
 package com.baran.charactersheetcreator;
 
-public class CharacterCreator {
+public class Character {
     private String name;
     private String profession;
     private int strength;
