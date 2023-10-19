@@ -2,15 +2,14 @@
 <head>
     <link rel="stylesheet" href="./pico.min.css">
     <title>Getting Started: Character Sheet Creator</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <h1>Design your Character!</h1>
 <form action="#" th:action="@{/}" th:object="${character}" method="post">
     <p>Enter the Name of your Character:</p>
-    <p><input type="text" th:field="*{name}" /></p>
+    <p><input type="text" th:field="*{name}"/></p>
     <button type="submit">Submit</button>
-
 </form>
 
 </body>
