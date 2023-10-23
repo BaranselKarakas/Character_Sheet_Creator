@@ -9,6 +9,14 @@
 <form action="#" th:action="@{/}" th:object="${character}" method="post">
     <p>Enter the Name of your Character:</p>
     <p><input type="text" th:field="*{name}"/></p>
+    <p>Enter the Name of your Profession:</p>
+    <p><input type="text" th:field="*{profession}"/></p>
+    <p>Enter your Strength stat:</p>
+    <p><input type="text" th:field="*{strength}"/></p>
+    <p>Enter your Agility stat:</p>
+    <p><input type="text" th:field="*{agility}"/></p>
+    <p>Enter your Intelligence stat:</p>
+    <p><input type="text" th:field="*{intelligence}"/></p>
     <button type="submit">Submit</button>
 </form>
 
