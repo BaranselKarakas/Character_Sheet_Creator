@@ -1,5 +1,6 @@
-package com.baran.charactersheetcreator;
+package com.baran.charactersheetcreator.controller;
 
+import com.baran.charactersheetcreator.domain.Character;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

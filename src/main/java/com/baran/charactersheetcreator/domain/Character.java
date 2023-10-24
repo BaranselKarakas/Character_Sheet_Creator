@@ -1,4 +1,4 @@
-package com.baran.charactersheetcreator;
+package com.baran.charactersheetcreator.domain;
 
 public class Character {
     private String name;
