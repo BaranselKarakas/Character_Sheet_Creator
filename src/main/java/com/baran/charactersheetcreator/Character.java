@@ -7,6 +7,8 @@ public class Character {
     private int agility;
     private int intelligence;
 
+
+
     public String getName() {
         return name;
     }

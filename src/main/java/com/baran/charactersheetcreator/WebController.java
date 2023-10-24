@@ -28,8 +28,9 @@ public class WebController {
 
     @GetMapping("/characters")
     public String showAllCharacters(){
-        return "";
+        return "characterlist";
     }
+
     @GetMapping("/characters/{name}")
     public String characterListPage(RedirectAttributes redirectAttrs) {
         return "characterpage";
