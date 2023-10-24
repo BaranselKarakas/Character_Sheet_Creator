@@ -27,9 +27,14 @@ public class WebController {
         redirectAttrs.addFlashAttribute("character", character);
         return "redirect:/character";
     }
+
     @GetMapping("/character")
     public String characterPage(RedirectAttributes redirectAttrs) {
-        return "characterpage";
+    }
+
+    @GetMapping("/characters")
+    public String showAllCharacters(){
+        return "characterlist";
     }
 
 }
