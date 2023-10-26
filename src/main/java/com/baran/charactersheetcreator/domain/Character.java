@@ -1,12 +1,13 @@
 package com.baran.charactersheetcreator.domain;
 
+import java.util.HashMap;
+
 public class Character {
     private String name;
     private String profession;
     private int strength;
     private int agility;
     private int intelligence;
-
 
 
     public String getName() {
