@@ -1,6 +1,7 @@
 package com.baran.charactersheetcreator.controller;
 
 import com.baran.charactersheetcreator.domain.Character;
+import com.baran.charactersheetcreator.service.CharacterService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +24,15 @@ public class WebController {
         return "charactercreator";
     }
 
+<<<<<<< HEAD
     @PostMapping("/")
     public String submitCharacterName(@ModelAttribute Character character, RedirectAttributes redirectAttrs) {
+=======
+    @PostMapping("/ ")
+    public String submitCharacterName(@ModelAttribute Character character, @RequestParam("name") String name, RedirectAttributes redirectAttrs) {
+        character.setName(name);
+        CharacterService.getArrayList().add(character);
+>>>>>>> 0137718 (exchange HashMap with ArrayList)
         redirectAttrs.addFlashAttribute("character", character);
         return "redirect:/character";
     }
