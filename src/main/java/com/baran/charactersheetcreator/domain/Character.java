@@ -10,6 +10,11 @@ public class Character {
     private int agility;
     private int intelligence;
 
+    private int id = -1;
+
+    public Character() {
+        this.id++;
+    }
 
 
     public Character() {

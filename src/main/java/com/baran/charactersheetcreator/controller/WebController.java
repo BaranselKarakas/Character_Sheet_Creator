@@ -33,6 +33,7 @@ public class WebController {
     @PostMapping("/")
     public String submitCharacterName(@ModelAttribute Character character, RedirectAttributes redirectAttrs) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @PostMapping("/ ")
 =======
@@ -58,6 +59,12 @@ public class WebController {
         redirectAttrs.addFlashAttribute("character", character);
         return "redirect:/characters/" + indexOfMyArrayList;
 >>>>>>> fdfe0ab (wip functional characterlist)
+=======
+        getMyCharacterArrayList().add(character);
+        indexOfMyArrayList = getMyCharacterArrayList().size() - 1;
+        redirectAttrs.addFlashAttribute("character", character);
+        return "redirect:/characters/" + indexOfMyArrayList;
+>>>>>>> 17a9f2c (wip add basic functionality  to characterlist page)
     }
 
     @GetMapping("/characters")
@@ -69,6 +76,7 @@ public class WebController {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @GetMapping("/characters/{name}")
     public String getCharacterPage(RedirectAttributes redirectAttrs) {
@@ -77,6 +85,11 @@ public class WebController {
     public String getCharacterPage(@PathVariable int index, Model model) {
         model.addAttribute("character", getMyCharacterArrayList().get(index));
 >>>>>>> fdfe0ab (wip functional characterlist)
+=======
+    @GetMapping("/characters/{index}")
+    public String getCharacterPage(@PathVariable int index, Model model) {
+        model.addAttribute("character", getMyCharacterArrayList().get(index));
+>>>>>>> 17a9f2c (wip add basic functionality  to characterlist page)
         return "characterpage";
     }
 

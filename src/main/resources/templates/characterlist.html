@@ -8,10 +8,18 @@
 <h1> Character List </h1>
 
 <div th:each="character : ${myCharacterArrayList}">
+<<<<<<< HEAD
     <a th:href="@{'/characters/' + ${character.id}}"><span th:text="'Character ' + ${character.name}"></span></a>
 </div>
 <p th:text="${myCharacterArrayList}"/>
 
+=======
+    <a th:href="@{'/characters/' + ${character.id} }">
+        Character ${character.name}
+    </a>
+    <p th:text="'Character ' + ${character.name}" />
+</div>
+>>>>>>> 17a9f2c (wip add basic functionality  to characterlist page)
 
 
 
