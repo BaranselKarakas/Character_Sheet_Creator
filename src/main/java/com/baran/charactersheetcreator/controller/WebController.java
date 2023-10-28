@@ -31,8 +31,12 @@ public class WebController {
     @PostMapping("/ ")
     public String submitCharacterName(@ModelAttribute Character character, @RequestParam("name") String name, RedirectAttributes redirectAttrs) {
         character.setName(name);
+<<<<<<< HEAD
         CharacterService.getArrayList().add(character);
 >>>>>>> 0137718 (exchange HashMap with ArrayList)
+=======
+        CharacterService.getMyCharacterArrayList().add(character);
+>>>>>>> a04ecbc (rename ArrayList + make mvnw executable)
         redirectAttrs.addFlashAttribute("character", character);
         return "redirect:/character";
     }

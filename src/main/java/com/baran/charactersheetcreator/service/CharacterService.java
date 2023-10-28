@@ -1,23 +1,21 @@
 package com.baran.charactersheetcreator.service;
 
-import com.baran.charactersheetcreator.domain.Character;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 @Service
 public class CharacterService {
 
-    static ArrayList<Object> arrayList = new ArrayList<>();
+    static ArrayList<Object> myCharacterArrayList = new ArrayList<>();
 
-    public static ArrayList<Object> getArrayList() {
-        return arrayList;
+    public static ArrayList<Object> getMyCharacterArrayList() {
+        return myCharacterArrayList;
     }
 
-    public static void setArrayList(ArrayList<Object> arrayList) {
-        CharacterService.arrayList = arrayList;
+    public static void setMyCharacterArrayList(ArrayList<Object> myCharacterArrayList) {
+        CharacterService.myCharacterArrayList = myCharacterArrayList;
     }
 
 
