@@ -25,10 +25,14 @@ public class WebController {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     @PostMapping("/")
     public String submitCharacterName(@ModelAttribute Character character, RedirectAttributes redirectAttrs) {
 =======
     @PostMapping("/ ")
+=======
+    @PostMapping("/")
+>>>>>>> 038466c (remove typo)
     public String submitCharacterName(@ModelAttribute Character character, @RequestParam("name") String name, RedirectAttributes redirectAttrs) {
         character.setName(name);
 <<<<<<< HEAD
