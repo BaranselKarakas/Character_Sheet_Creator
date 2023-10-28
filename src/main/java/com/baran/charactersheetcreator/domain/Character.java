@@ -1,7 +1,5 @@
 package com.baran.charactersheetcreator.domain;
 
-import java.util.HashMap;
-
 public class Character {
     private String name;
     private String profession;
@@ -9,6 +7,11 @@ public class Character {
     private int agility;
     private int intelligence;
 
+    private int id = -1;
+
+    public Character() {
+        this.id++;
+    }
 
     public String getName() {
         return name;
@@ -49,4 +52,21 @@ public class Character {
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "name='" + name + '\'' +
+                ", profession='" + profession + '\'' +
+                ", strength=" + strength +
+                ", agility=" + agility +
+                ", intelligence=" + intelligence +
+                ", characterID=" + id +
+                '}';
+    }
 }
+
