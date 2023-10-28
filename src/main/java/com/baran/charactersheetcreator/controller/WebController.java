@@ -50,4 +50,12 @@ public class WebController {
         return "characterlist";
     }
 
+<<<<<<< HEAD
+=======
+    @GetMapping("/characters/{name}")
+    public String getCharacterPage(RedirectAttributes redirectAttrs) {
+        return "characterpage";
+    }
+
+>>>>>>> b0f1cd5 (rename method)
 }
