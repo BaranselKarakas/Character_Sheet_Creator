@@ -24,7 +24,7 @@ public class WebController {
     @PostMapping("/ ")
     public String submitCharacterName(@ModelAttribute Character character, @RequestParam("name") String name, RedirectAttributes redirectAttrs) {
         character.setName(name);
-        CharacterService.getArrayList().add(character);
+        CharacterService.getMyCharacterArrayList().add(character);
         redirectAttrs.addFlashAttribute("character", character);
         return "redirect:/characters/" + name;
     }
