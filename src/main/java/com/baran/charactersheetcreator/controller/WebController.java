@@ -35,7 +35,7 @@ public class WebController {
     }
 
     @GetMapping("/characters/{name}")
-    public String characterListPage(RedirectAttributes redirectAttrs) {
+    public String getCharacterPage(RedirectAttributes redirectAttrs) {
         return "characterpage";
     }
 
