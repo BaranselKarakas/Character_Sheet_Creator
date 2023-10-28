@@ -21,7 +21,7 @@ public class WebController {
         return "charactercreator";
     }
 
-    @PostMapping("/ ")
+    @PostMapping("/")
     public String submitCharacterName(@ModelAttribute Character character, @RequestParam("name") String name, RedirectAttributes redirectAttrs) {
         character.setName(name);
         CharacterService.getMyCharacterArrayList().add(character);
