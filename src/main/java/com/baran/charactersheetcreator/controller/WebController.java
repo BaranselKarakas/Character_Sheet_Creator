@@ -7,8 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import static com.baran.charactersheetcreator.service.CharacterService.getMyCharacterArrayList;
 @Controller
 public class WebController {
+
+    int indexOfMyArrayList;
+
     @GetMapping("/Hello")
     @ResponseBody
     public String getRoot() {
@@ -22,20 +26,23 @@ public class WebController {
     }
 
     @PostMapping("/")
-    public String submitCharacterName(@ModelAttribute Character character, @RequestParam("name") String name, RedirectAttributes redirectAttrs) {
-        character.setName(name);
-        CharacterService.getMyCharacterArrayList().add(character);
+    public String submitCharacterName(@ModelAttribute Character character, RedirectAttributes redirectAttrs) {
+        getMyCharacterArrayList().add(character);
+        indexOfMyArrayList = getMyCharacterArrayList().size() - 1;
         redirectAttrs.addFlashAttribute("character", character);
-        return "redirect:/characters/" + name;
+        return "redirect:/characters/" + indexOfMyArrayList;
     }
 
     @GetMapping("/characters")
-    public String showAllCharacters(){
+    public String showAllCharacters(Model model){
+        model.addAttribute("myCharacterArrayList", getMyCharacterArrayList());
+        model.addAttribute("character", getMyCharacterArrayList().get(indexOfMyArrayList));
         return "characterlist";
     }
 
-    @GetMapping("/characters/{name}")
-    public String getCharacterPage(RedirectAttributes redirectAttrs) {
+    @GetMapping("/characters/{index}")
+    public String getCharacterPage(@PathVariable int index, Model model) {
+        model.addAttribute("character", getMyCharacterArrayList().get(index));
         return "characterpage";
     }
 
