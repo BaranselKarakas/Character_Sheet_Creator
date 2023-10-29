@@ -1,16 +1,20 @@
 package com.baran.charactersheetcreator.domain;
 
 public class Character {
+
+    private int id = 0;
+    private static int nextId = 0;
     private String name;
     private String profession;
     private int strength;
     private int agility;
     private int intelligence;
 
-    private int id = -1;
+
 
     public Character() {
-        this.id++;
+        this.id = nextId;
+        nextId++;
     }
 
     public String getName() {
