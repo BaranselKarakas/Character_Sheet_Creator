@@ -1,11 +1,9 @@
 package com.baran.charactersheetcreator.controller;
 
 import com.baran.charactersheetcreator.domain.Character;
-import com.baran.charactersheetcreator.service.CharacterService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import static com.baran.charactersheetcreator.service.CharacterService.getMyCharacterArrayList;
 @Controller
@@ -26,11 +24,10 @@ public class WebController {
     }
 
     @PostMapping("/")
-    public String submitCharacterName(@ModelAttribute Character character, RedirectAttributes redirectAttrs) {
+    public String createCharacter(Character character, Model model) {
         character.setId(getMyCharacterArrayList().size());
         getMyCharacterArrayList().add(character);
         indexOfMyArrayList = getMyCharacterArrayList().size() - 1;
-        redirectAttrs.addFlashAttribute("character", character);
         return "redirect:/characters/" + indexOfMyArrayList;
     }
 
@@ -41,7 +38,7 @@ public class WebController {
         return "characterlist";
     }
 
-    @GetMapping("/characters/{index}")
+    @GetMapping("/characters/{index}") //index is the value with which you got redirected here.
     public String getCharacterPage(@PathVariable int index, Model model) {
         model.addAttribute("character", getMyCharacterArrayList().get(index));
         return "characterpage";
