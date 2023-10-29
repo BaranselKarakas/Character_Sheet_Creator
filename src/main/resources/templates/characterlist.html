@@ -10,10 +10,10 @@
 <div th:each="character : ${myCharacterArrayList}">
     <a th:href="@{'/characters/' + ${character.id}}"><span th:text="'Character ' + ${character.name}"></span></a>
 </div>
-<p th:text="${myCharacterArrayList}"/>
 
-
-
+<a href="/">
+    <button>Create a new Character</button>
+</a>
 
 </body>
 </html>
