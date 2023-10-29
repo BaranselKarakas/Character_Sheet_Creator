@@ -33,9 +33,11 @@ public class WebController {
 
     @GetMapping("/characters")
     public String showAllCharacters(Model model){
-        model.addAttribute("myCharacterArrayList", getMyCharacterArrayList());
-        model.addAttribute("character", getMyCharacterArrayList().get(indexOfMyArrayList));
-        return "characterlist";
+    if (!getMyCharacterArrayList().isEmpty()) {
+      model.addAttribute("myCharacterArrayList", getMyCharacterArrayList());
+      model.addAttribute("character", getMyCharacterArrayList().get(indexOfMyArrayList));
+      return "characterlist";
+        } else return "characterlistempty";
     }
 
     @GetMapping("/characters/{index}") //index is the value with which you got redirected here.
