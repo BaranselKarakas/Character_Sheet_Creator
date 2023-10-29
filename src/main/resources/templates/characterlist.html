@@ -8,11 +8,10 @@
 <h1> Character List </h1>
 
 <div th:each="character : ${myCharacterArrayList}">
-    <a th:href="@{'/characters/' + ${character.id} }">
-        Character ${character.name}
-    </a>
-    <p th:text="'Character ' + ${character.name}" />
+    <a th:href="@{'/characters/' + ${character.id}}"><span th:text="'Character ' + ${character.name}"></span></a>
 </div>
+<p th:text="${myCharacterArrayList}"/>
+
 
 
 
