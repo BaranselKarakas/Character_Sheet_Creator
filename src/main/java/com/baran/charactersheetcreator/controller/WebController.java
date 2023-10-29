@@ -1,14 +1,17 @@
 package com.baran.charactersheetcreator.controller;
 
 import com.baran.charactersheetcreator.domain.Character;
-import com.baran.charactersheetcreator.service.CharacterService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+=======
+import org.springframework.web.bind.annotation.*;
+>>>>>>> dc84404 (format, rename, remove redundant parts)
 
 import static com.baran.charactersheetcreator.service.CharacterService.getMyCharacterArrayList;
 @Controller
@@ -31,6 +34,7 @@ public class WebController {
 <<<<<<< HEAD
 <<<<<<< HEAD
     @PostMapping("/")
+<<<<<<< HEAD
     public String submitCharacterName(@ModelAttribute Character character, RedirectAttributes redirectAttrs) {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -56,11 +60,13 @@ public class WebController {
     public String characterPage(RedirectAttributes redirectAttrs) {
 =======
 =======
+=======
+    public String createCharacter(Character character, Model model) {
+>>>>>>> dc84404 (format, rename, remove redundant parts)
         character.setId(getMyCharacterArrayList().size());
 >>>>>>> d39f4c6 (add basic functionality to characterlist)
         getMyCharacterArrayList().add(character);
         indexOfMyArrayList = getMyCharacterArrayList().size() - 1;
-        redirectAttrs.addFlashAttribute("character", character);
         return "redirect:/characters/" + indexOfMyArrayList;
 >>>>>>> fdfe0ab (wip functional characterlist)
 =======
@@ -81,11 +87,15 @@ public class WebController {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @GetMapping("/characters/{name}")
     public String getCharacterPage(RedirectAttributes redirectAttrs) {
 =======
     @GetMapping("/characters/{index}")
+=======
+    @GetMapping("/characters/{index}") //index is the value with which you got redirected here.
+>>>>>>> dc84404 (format, rename, remove redundant parts)
     public String getCharacterPage(@PathVariable int index, Model model) {
         model.addAttribute("character", getMyCharacterArrayList().get(index));
 >>>>>>> fdfe0ab (wip functional characterlist)
