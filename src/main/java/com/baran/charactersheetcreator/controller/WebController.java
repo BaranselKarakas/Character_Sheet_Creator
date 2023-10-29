@@ -34,6 +34,7 @@ public class WebController {
     public String submitCharacterName(@ModelAttribute Character character, RedirectAttributes redirectAttrs) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @PostMapping("/ ")
 =======
@@ -54,6 +55,9 @@ public class WebController {
     @GetMapping("/character")
     public String characterPage(RedirectAttributes redirectAttrs) {
 =======
+=======
+        character.setId(getMyCharacterArrayList().size());
+>>>>>>> d39f4c6 (add basic functionality to characterlist)
         getMyCharacterArrayList().add(character);
         indexOfMyArrayList = getMyCharacterArrayList().size() - 1;
         redirectAttrs.addFlashAttribute("character", character);

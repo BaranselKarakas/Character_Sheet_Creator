@@ -2,8 +2,7 @@ package com.baran.charactersheetcreator.domain;
 
 public class Character {
 
-    private int id = 0;
-    private static int nextId = 0;
+    private int id;
     private String name;
     private String profession;
     private int strength;
@@ -11,10 +10,12 @@ public class Character {
     private int intelligence;
 
 
+    public int getId() {
+        return id;
+    }
 
-    public Character() {
-        this.id = nextId;
-        nextId++;
+    public void setId(int id) {
+        this.id = id;
     }
 
 
@@ -63,19 +64,15 @@ public class Character {
         this.intelligence = intelligence;
     }
 
-    public int getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
         return "Character{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", profession='" + profession + '\'' +
                 ", strength=" + strength +
                 ", agility=" + agility +
                 ", intelligence=" + intelligence +
-                ", characterID=" + id +
                 '}';
     }
 }
