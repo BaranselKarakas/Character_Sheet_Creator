@@ -5,9 +5,9 @@ public class Character {
     private int id;
     private String name;
     private String profession;
-    private int strength;
-    private int agility;
-    private int intelligence;
+    private int strength = 1;
+    private int agility = 1;
+    private int intelligence = 1;
 
 
     public int getId() {
