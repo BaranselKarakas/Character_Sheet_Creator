@@ -18,12 +18,6 @@ public class Character {
         this.id = id;
     }
 
-
-    public Character() {
-        this.id = nextId;
-        nextId++;
-    }
-
     public String getName() {
         return name;
     }
