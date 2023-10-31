@@ -13,7 +13,7 @@ import static com.baran.charactersheetcreator.service.CharacterService.getMyChar
 @Controller
 public class WebController {
 
-    int indexOfMyArrayList;
+    int indexCharacterList;
 
     @GetMapping("/Hello")
     @ResponseBody
@@ -31,15 +31,15 @@ public class WebController {
     public String createCharacter(Character character, Model model) {
         character.setId(getMyCharacterArrayList().size());
         getMyCharacterArrayList().add(character);
-        indexOfMyArrayList = getMyCharacterArrayList().size() - 1;
-        return "redirect:/characters/" + indexOfMyArrayList;
+        indexCharacterList = getMyCharacterArrayList().size() - 1;
+        return "redirect:/characters/" + indexCharacterList;
     }
 
     @GetMapping("/characters")
     public String showAllCharacters(Model model) {
         if (!getMyCharacterArrayList().isEmpty()) {
             model.addAttribute("myCharacterArrayList", getMyCharacterArrayList());
-            model.addAttribute("character", getMyCharacterArrayList().get(indexOfMyArrayList));
+            model.addAttribute("character", getMyCharacterArrayList().get(indexCharacterList));
             return "characterlist";
         } else return "characterlistempty";
     }
