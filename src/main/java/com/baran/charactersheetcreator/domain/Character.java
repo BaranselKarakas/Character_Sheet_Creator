@@ -4,10 +4,10 @@ public class Character {
 
     private int id;
     private String name;
-    private String profession;
-    private int strength;
-    private int agility;
-    private int intelligence;
+    private String charClass;
+    private int strength = 1;
+    private int agility = 1;
+    private int intelligence = 1;
 
 
     public int getId() {
@@ -26,12 +26,12 @@ public class Character {
         this.name = name;
     }
 
-    public String getProfession() {
-        return profession;
+    public String getCharClass() {
+        return charClass;
     }
 
-    public void setProfession(String profession) {
-        this.profession = profession;
+    public void setCharClass(String charClass) {
+        this.charClass = charClass;
     }
 
     public int getStrength() {
@@ -63,7 +63,7 @@ public class Character {
         return "Character{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", profession='" + profession + '\'' +
+                ", profession='" + charClass + '\'' +
                 ", strength=" + strength +
                 ", agility=" + agility +
                 ", intelligence=" + intelligence +

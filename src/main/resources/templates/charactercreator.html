@@ -1,16 +1,29 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="./pico.min.css">
+    <link rel="stylesheet" href="/pico.min.css">
     <title>Getting Started: Character Sheet Creator</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 <h1>Design your Character!</h1>
 <form action="#" th:action="@{/}" th:object="${character}" method="post">
     <p>Enter the Name of your Character:</p>
-    <p><input type="text" th:field="*{name}"/></p>
-    <p>Enter the Name of your Profession:</p>
-    <p><input type="text" th:field="*{profession}"/></p>
+    <p><input type="text" th:field="*{name}" required/></p>
+    <p>Choose your Class:</p>
+    <select th:field="*{charClass}">
+        <option value="Barbarian">Barbarian</option>
+        <option value="Bard">Bard</option>
+        <option value="Cleric">Cleric</option>
+        <option value="Druid">Druid</option>
+        <option value="Fighter">Fighter</option>
+        <option value="Monk">Monk</option>
+        <option value="Paladin">Paladin</option>
+        <option value="Ranger">Ranger</option>
+        <option value="Rogue">Rogue</option>
+        <option value="Sorcerer">Sorcerer</option>
+        <option value="Warlock">Warlock</option>
+        <option value="Wizard">Wizard</option>
+    </select>
     <p>Enter your Strength stat:</p>
     <p><input type="text" th:field="*{strength}"/></p>
     <p>Enter your Agility stat:</p>
