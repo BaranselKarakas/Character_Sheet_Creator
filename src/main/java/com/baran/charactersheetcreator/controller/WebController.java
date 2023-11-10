@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import static com.baran.charactersheetcreator.service.CharService.getMyCharacterArrayList;
+import static com.baran.charactersheetcreator.service.CharService.getCharList;
 
 @Controller
 public class WebController {
@@ -29,17 +29,17 @@ public class WebController {
     }
 
     @GetMapping("/characters")
-    public String showAllCharacters(Model model) {
-        if (!getMyCharacterArrayList().isEmpty()) {
-            model.addAttribute("myCharacterArrayList", getMyCharacterArrayList());
-            model.addAttribute("character", getMyCharacterArrayList().get(indexCharacterList));
+    public String showAllCharacters(Model model, CharService charService) {
+        if (!getCharList().isEmpty()) {
+            model.addAttribute("myCharacterArrayList", getCharList());
+            model.addAttribute("character", charService.getChar());
             return "characterlist";
         } else return "characterlistempty";
     }
 
     @GetMapping("/characters/{index}") //index is the value with which you got redirected here.
     public String getCharacterPage(@PathVariable int index, Model model) {
-        model.addAttribute("character", getMyCharacterArrayList().get(index));
+        model.addAttribute("character", getCharList().get(index));
         return "characterpage";
     }
 

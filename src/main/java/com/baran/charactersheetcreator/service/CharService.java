@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class CharService {
 
     private int index;
-    static ArrayList<Object> myCharacterArrayList = new ArrayList<>();
+    static ArrayList<Object> charList = new ArrayList<>();
 
     public int getIndex() {
         return index;
@@ -20,21 +20,25 @@ public class CharService {
         this.index = index;
     }
 
-    public static ArrayList<Object> getMyCharacterArrayList() {
-        return myCharacterArrayList;
+    public static ArrayList<Object> getCharList() {
+        return charList;
     }
 
-    public static void setMyCharacterArrayList(ArrayList<Object> myCharacterArrayList) {
-        CharService.myCharacterArrayList = myCharacterArrayList;
+    public static void setCharList(ArrayList<Object> charList) {
+        CharService.charList = charList;
     }
 
     public int getNextId(){
-        return getMyCharacterArrayList().size();
+        return getCharList().size();
     }
 
     public void addCharacter(Character character){
-        getMyCharacterArrayList().add(character);
-        setIndex(getMyCharacterArrayList().size() - 1);
+        getCharList().add(character);
+        setIndex(getCharList().size() - 1);
+    }
+
+    public Object getChar(){
+        return getCharList().get(getIndex());
     }
 
 
