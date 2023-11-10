@@ -37,4 +37,7 @@ public class CharService {
         return getCharList().get(getIndex());
     }
 
+
+
+
 }
