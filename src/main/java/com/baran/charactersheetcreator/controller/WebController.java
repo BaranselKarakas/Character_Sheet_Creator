@@ -15,12 +15,6 @@ public class WebController {
 
     int indexCharacterList;
 
-    @GetMapping("/Hello")
-    @ResponseBody
-    public String getRoot() {
-        return "Hello World";
-    }
-
     @GetMapping("/")
     public String getCharacterCreator(Model model) {
         model.addAttribute("character", new Character());
