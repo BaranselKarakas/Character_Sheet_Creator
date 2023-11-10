@@ -1,14 +1,14 @@
 package com.baran.charactersheetcreator.controller;
 
 import com.baran.charactersheetcreator.domain.Character;
+import com.baran.charactersheetcreator.service.CharService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import static com.baran.charactersheetcreator.service.CharacterService.getMyCharacterArrayList;
+import static com.baran.charactersheetcreator.service.CharService.getMyCharacterArrayList;
 
 @Controller
 public class WebController {
@@ -22,11 +22,10 @@ public class WebController {
     }
 
     @PostMapping("/")
-    public String createCharacter(Character character, Model model) {
-        character.setId(getMyCharacterArrayList().size());
-        getMyCharacterArrayList().add(character);
-        indexCharacterList = getMyCharacterArrayList().size() - 1;
-        return "redirect:/characters/" + indexCharacterList;
+    public String createCharacter(Character character, Model model, CharService charService) {
+        character.setId(charService.getNextId());
+        charService.addCharacter(character);
+        return "redirect:/characters/" + charService.getIndex();
     }
 
     @GetMapping("/characters")
