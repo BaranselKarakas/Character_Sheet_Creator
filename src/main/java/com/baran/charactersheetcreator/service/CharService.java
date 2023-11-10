@@ -24,10 +24,6 @@ public class CharService {
         return charList;
     }
 
-    public static void setCharList(ArrayList<Object> charList) {
-        CharService.charList = charList;
-    }
-
     public int getNextId(){
         return getCharList().size();
     }
