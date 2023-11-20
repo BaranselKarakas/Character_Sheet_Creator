@@ -1,16 +1,24 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="./pico.min.css">
-    <title>Getting Started: Character Sheet Creator</title>
+    <link rel="stylesheet" href="/pico.min.css">
+    <title>Character Page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <h1> Character Page </h1>
+
 <p th:text="'Name: ' + ${character.name}"/>
-<p th:text="'Profession: ' + ${character.profession}"/>
+<p th:text="'Class: ' + ${character.charClass}"/>
 <p th:text="'Strength: ' + ${character.strength}"/>
 <p th:text="'Agility: ' + ${character.agility}"/>
 <p th:text="'Intelligence: ' + ${character.intelligence}"/>
+
+<a href="/">
+    <button>Create a new Character</button>
+</a>
+<a href="/characters">
+    <button>Show All Characters</button>
+</a>
 
 </body>
 </html>
