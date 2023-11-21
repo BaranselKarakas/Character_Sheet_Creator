@@ -25,5 +25,16 @@ public class AdminController {
         return "admincharacterlist";
     }
 
+    @GetMapping("/characters/delete/{index}")
+        public void deleteCharacter(){
+        deleteCharacter();
+    }
+
+    @GetMapping("/characters/delete/all")
+    public void deleteAllCharacter(){
+        deleteAllCharacter();
+    }
+
+
 }
 

@@ -9,6 +9,10 @@
 
 <div th:each="character : ${myCharacterArrayList}">
     <a th:href="@{'/characters/' + ${character.id}}"><span th:text="'Character ' + ${character.name}"></span></a>
+    <a th:href="@{'/characters/delete/ + ${character.id}}">
+        onclick="return confirm('Are you sure you want to delete this character?')">
+        <button>Delete Character</button>
+    </a>
 </div>
 
 <a href="/">
