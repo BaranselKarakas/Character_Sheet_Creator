@@ -38,7 +38,6 @@ public class WebController {
     public String showAllCharacters(Model model) {
         if (!getCharList().isEmpty()) {
             model.addAttribute("myCharacterArrayList", getCharList());
-            model.addAttribute("character", charService.getChar());
             return "characterlist";
         } else return "characterlistempty";
     }
