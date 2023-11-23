@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import static com.baran.charactersheetcreator.service.CharService.getCharById;
 import static com.baran.charactersheetcreator.service.CharService.getCharList;
 
 @Controller
@@ -29,9 +30,9 @@ public class WebController {
 
     @PostMapping("/")
     public String createCharacter(Character character, Model model) {
-        character.setId(charService.getNextId());
+        character.setId(charService.getCounter());
         charService.addCharacter(character);
-        return "redirect:/characters/" + charService.getIndex();
+        return "redirect:/characters/" + charService.getCounterMinusOne();
     }
 
     @GetMapping("/characters")
@@ -42,9 +43,9 @@ public class WebController {
         } else return "characterlistempty";
     }
 
-    @GetMapping("/characters/{index}") //index is the value with which you got redirected here.
-    public String getCharacterPage(@PathVariable int index, Model model) {
-        model.addAttribute("character", getCharList().get(index));
+    @GetMapping("/characters/{id}") //index is the value with which you got redirected here.
+    public String getCharacterPage(@PathVariable int id, Model model) {
+        model.addAttribute("character", getCharById(id));
         return "characterpage";
     }
 

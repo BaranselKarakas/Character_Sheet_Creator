@@ -9,28 +9,25 @@ import java.util.ArrayList;
 @Service
 public class CharService {
 
-    private int index;
+    private static int counter = 0;
     static ArrayList<Character> charList = new ArrayList<>();
 
-    public int getIndex() {
-        return index;
+    public int getCounter() {
+        return counter;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
+    public int getCounterMinusOne(){
+        return counter - 1;
     }
 
     public static ArrayList<Character> getCharList() {
         return charList;
     }
 
-    public int getNextId(){
-        return getCharList().size();
-    }
 
     public void addCharacter(Character character){
         getCharList().add(character);
-        setIndex(getCharList().size() - 1);
+        counter++;
     }
 
     public static Character getCharById(int id){
