@@ -18,7 +18,7 @@ public class WebController {
     private final CharService charService;
 
     @Autowired
-    public WebController(CharService charService){
+    public WebController(CharService charService) {
         this.charService = charService;
     }
 
