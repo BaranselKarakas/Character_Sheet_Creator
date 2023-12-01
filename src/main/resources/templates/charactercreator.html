@@ -1,11 +1,11 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="/pico.min.css">
-    <title>data-th-text=”#{label.title}”</title>
+    <title th:text="#{greeting}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>data-th-text=”#{label.title}”</h1>
+<h1 th:text="#{greeting}"></h1>
 <form action="#" th:action="@{/}" th:object="${character}" method="post">
     <p>Enter the Name of your Character:</p>
     <p><input type="text" th:field="*{name}" required/></p>
