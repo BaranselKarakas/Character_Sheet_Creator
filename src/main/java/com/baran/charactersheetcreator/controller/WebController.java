@@ -32,7 +32,7 @@ public class WebController {
     public String createCharacter(Character character, Model model) {
         character.setId(charService.getCounter());
         charService.addCharacter(character);
-        return "redirect:/characters/" + charService.getCounterMinusOne();
+        return "redirect:/characters/" + character.getId();
     }
 
     @GetMapping("/characters")
