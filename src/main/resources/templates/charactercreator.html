@@ -1,40 +1,40 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="/pico.min.css">
-    <title th:text="#{greeting}"></title>
+    <title th:text="#{creator.greeting}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1 th:text="#{greeting}"></h1>
+<h1 th:text="#{creator.greeting}"></h1>
 <form action="#" th:action="@{/}" th:object="${character}" method="post">
-    <p>Enter the Name of your Character:</p>
+    <p th:text="#{creator.name}"></p>
     <p><input type="text" th:field="*{name}" required/></p>
-    <p>Choose your Class:</p>
+    <p th:text="#{creator.class}"></p>
     <select th:field="*{charClass}">
-        <option value="Barbarian">Barbarian</option>
-        <option value="Bard">Bard</option>
-        <option value="Cleric">Cleric</option>
-        <option value="Druid">Druid</option>
-        <option value="Fighter">Fighter</option>
-        <option value="Monk">Monk</option>
-        <option value="Paladin">Paladin</option>
-        <option value="Ranger">Ranger</option>
-        <option value="Rogue">Rogue</option>
-        <option value="Sorcerer">Sorcerer</option>
-        <option value="Warlock">Warlock</option>
-        <option value="Wizard">Wizard</option>
+        <option value="Barbarian" th:text="#{creator.barbarian}"></option>
+        <option value="Bard" th:text="#{creator.barbarian}">Bard</option>
+        <option value="Cleric" th:text="#{creator.barbarian}">Cleric</option>
+        <option value="Druid" th:text="#{creator.barbarian}">Druid</option>
+        <option value="Fighter" th:text="#{creator.barbarian}">Fighter</option>
+        <option value="Monk" th:text="#{creator.barbarian}">Monk</option>
+        <option value="Paladin" th:text="#{creator.barbarian}">Paladin</option>
+        <option value="Ranger" th:text="#{creator.barbarian}">Ranger</option>
+        <option value="Rogue" th:text="#{creator.barbarian}">Rogue</option>
+        <option value="Sorcerer" th:text="#{creator.barbarian}">Sorcerer</option>
+        <option value="Warlock" th:text="#{creator.barbarian}">Warlock</option>
+        <option value="Wizard" th:text="#{creator.barbarian}">Wizard</option>
     </select>
-    <p>Enter your Strength stat:</p>
+    <p th:text="#{creator.strength}"></p>
     <p><input type="text" th:field="*{strength}"/></p>
-    <p>Enter your Agility stat:</p>
+    <p th:text="#{creator.agility}"></p>
     <p><input type="text" th:field="*{agility}"/></p>
-    <p>Enter your Intelligence stat:</p>
+    <p th:text="#{creator.intelligence}"></p>
     <p><input type="text" th:field="*{intelligence}"/></p>
-    <button type="submit">Submit</button>
+    <button type="submit" th:text="#{creator.submit}"></button>
 </form>
 
 <a href="/characters">
-    <button>Show All Characters</button>
+    <button th:text="#{creator.allChars}"></button>
 </a>
 
 </body>
