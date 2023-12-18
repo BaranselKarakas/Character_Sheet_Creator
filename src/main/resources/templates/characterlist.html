@@ -1,18 +1,18 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="/pico.min.css">
-    <title>Character List</title>
+    <title th:text="#{list.title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1> Character List </h1>
+<h1 th:text="#{list.title}"></h1>
 
 <div th:each="character : ${myCharacterArrayList}">
-    <a th:href="@{'/characters/' + ${character.id}}"><span th:text="'Character ' + ${character.name}"></span></a>
+    <a th:href="@{'/characters/' + ${character.id}}"><span th:text="#{list.character} + ${character.name}"></span></a>
 </div>
 
 <a href="/">
-    <button>Create a new Character</button>
+    <button th:text="#{list.create}"></button>
 </a>
 
 </body>
