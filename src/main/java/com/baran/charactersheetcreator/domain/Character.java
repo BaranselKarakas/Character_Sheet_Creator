@@ -1,7 +1,11 @@
 package com.baran.charactersheetcreator.domain;
 
-public class Character {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
+public class Character {
+    @Id
     private int id;
     private String name;
     private String charClass;
