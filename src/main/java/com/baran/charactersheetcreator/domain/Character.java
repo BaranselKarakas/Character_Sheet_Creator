@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Character {
     @Id
-    private int id;
+    private Integer id;
     private String name;
     private String charClass;
     private int strength = 1;
