@@ -29,10 +29,6 @@ public class CharService {
         return counter;
     }
 
-    public int getCounterMinusOne() {
-        return counter - 1;
-    }
-
     public void addCharacter(Character character) {
         getCharList().add(character);
         counter++;
