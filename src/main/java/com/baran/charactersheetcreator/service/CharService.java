@@ -1,6 +1,8 @@
 package com.baran.charactersheetcreator.service;
 
 import com.baran.charactersheetcreator.domain.Character;
+import com.baran.charactersheetcreator.repository.CharRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,6 +10,13 @@ import java.util.ArrayList;
 
 @Service
 public class CharService {
+
+    private final CharRepository charRepository;
+
+    @Autowired
+    public CharService(CharRepository charRepository){
+        this.charRepository = charRepository;
+    }
 
     private static int counter = 0;
     static ArrayList<Character> charList = new ArrayList<>();
