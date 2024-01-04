@@ -1,12 +1,11 @@
 package com.baran.charactersheetcreator.repository;
 
-import java.util.List;
-
+import com.baran.charactersheetcreator.domain.Character;
 import org.springframework.data.repository.CrudRepository;
+
+import java.util.Optional;
 
 public interface CharRepository extends CrudRepository<Character, Integer> {
 
-    List<Character> findByName(String name);
-
-    Character findById(long id);
+    void delete(Optional<Character> byId);
 }

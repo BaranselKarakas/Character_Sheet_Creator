@@ -9,16 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import static com.baran.charactersheetcreator.service.CharService.getCharById;
-import static com.baran.charactersheetcreator.service.CharService.getCharList;
-
 @Controller
 public class WebController {
 
     private final CharService charService;
 
     @Autowired
-    public WebController(CharService charService){
+    public WebController(CharService charService) {
         this.charService = charService;
     }
 
@@ -37,15 +34,17 @@ public class WebController {
 
     @GetMapping("/characters")
     public String showAllCharacters(Model model) {
-        if (!getCharList().isEmpty()) {
-            model.addAttribute("myCharacterArrayList", getCharList());
+        if (charService.getAllChars() == null) {
+            return "characterlistempty";
+        } else {
+            model.addAttribute("AllCharacter", charService.getAllChars());
             return "characterlist";
-        } else return "characterlistempty";
+        }
     }
 
     @GetMapping("/characters/{id}") //index is the value with which you got redirected here.
     public String getCharacterPage(@PathVariable int id, Model model) {
-        model.addAttribute("character", getCharById(id));
+        model.addAttribute("character", charService.getCharById(id));
         return "characterpage";
     }
 

@@ -29,23 +29,31 @@ public class CharService {
         return counter - 1;
     }
 
-    public static ArrayList<Character> getCharList() {
-        return charList;
+    public Iterable<Character> getAllChars() {
+        return charRepository.findAll();
     }
 
 
     public void addCharacter(Character character){
-        getCharList().add(character);
+        charRepository.save(character);
         counter++;
     }
 
-    public static Character getCharById(int id){
-        for (Character character : getCharList()) {
+    public Character getCharById(Integer id){
+        for (Character character : charRepository.findAll()) {
             if (character.getId() == id) {
                 return character;
             }
         }
         return null;
+    }
+
+    public void deleteChar(Integer id){
+        charRepository.delete(charRepository.findById(id));
+    }
+
+    public void deleteAllChars(){
+        charRepository.deleteAll();
     }
 
 }
