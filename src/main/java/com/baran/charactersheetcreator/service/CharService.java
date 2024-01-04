@@ -29,12 +29,18 @@ public class CharService {
         return counter - 1;
     }
 
-    public static ArrayList<Character> getCharList() {
-        return charList;
+    public Iterable<Character> getAllChars() {
+        return charRepository.findAll();
     }
 
-    public static Character getCharById(int id) {
-        for (Character character : getCharList()) {
+
+    public void addCharacter(Character character){
+        charRepository.save(character);
+        counter++;
+    }
+
+    public Character getCharById(Integer id){
+        for (Character character : charRepository.findAll()) {
             if (character.getId() == id) {
                 return character;
             }
@@ -42,10 +48,12 @@ public class CharService {
         return null;
     }
 
+    public void deleteChar(Integer id){
+        charRepository.delete(charRepository.findById(id));
+    }
 
-    public void addCharacter(Character character) {
-        getCharList().add(character);
-        counter++;
+    public void deleteAllChars(){
+        charRepository.deleteAll();
     }
 
 }

@@ -7,8 +7,8 @@
 <body>
 <h1 th:text="#{list.title}"></h1>
 
-<div th:each="character : ${myCharacterArrayList}">
-    <a th:href="@{'/characters/' + ${character.id}}"><span th:text="#{list.character} + ${character.name}"></span></a>
+<div th:each="character : ${AllCharacter}">
+    <a th:href="@{'/characters/' + ${character.id}}"><span th:text="'Character ' + ${character.name}"></span></a>
 </div>
 
 <a href="/">

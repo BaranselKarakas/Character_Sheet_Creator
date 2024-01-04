@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import static com.baran.charactersheetcreator.service.CharService.getCharList;
-
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -24,10 +22,12 @@ public class AdminController {
 
     @GetMapping("/characters")
     public String showAllCharacters(Model model, CharService charService) {
-        if (!getCharList().isEmpty()) {
-            model.addAttribute("myCharacterArrayList", getCharList());
+        if (charService.getAllChars() == null) {
+            return "characterlistempty";
+        } else {
+            model.addAttribute("AllCharacter", charService.getAllChars());
             return "admincharacterlist";
-        } else return "admincharacterlist";
+        }
     }
 
     @GetMapping("/characters/delete/{id}")
