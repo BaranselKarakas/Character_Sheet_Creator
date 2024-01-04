@@ -7,7 +7,7 @@
 <body>
 <h1> Character List </h1>
 
-<div th:each="character : ${myCharacterArrayList}">
+<div th:each="character : ${AllCharacter}">
     <a th:href="@{'/characters/' + ${character.id}}"><span th:text="'Character ' + ${character.name}"></span></a>
 </div>
 
