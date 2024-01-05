@@ -24,11 +24,11 @@ public class AdminController {
     }
 
     @GetMapping("/characters")
-    public String shows(Model model) {
+    public String showallCharacters(Model model) {
         if (charService.getAllChars() == null) {
             return "characterlistempty";
         } else {
-            model.addAttribute("", charService.getAllChars());
+            model.addAttribute("allCharacter", charService.getAllChars());
             return "admincharacterlist";
         }
     }
@@ -41,7 +41,7 @@ public class AdminController {
     }
 
     @GetMapping("/characters/delete/all")
-    public String delete() {
+    public String deleteallCharacter() {
         System.out.println("Deleting character with ID: ");
         adminService.deleteAllChars();
         return "redirect:/admin/characters";
