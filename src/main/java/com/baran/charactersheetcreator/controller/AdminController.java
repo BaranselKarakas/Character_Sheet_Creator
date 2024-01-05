@@ -31,14 +31,14 @@ public class AdminController {
     }
 
     @GetMapping("/characters/delete/{id}")
-        public String deleteCharacter(@PathVariable int id){
+    public String deleteCharacter(@PathVariable int id) {
         System.out.println("Deleting character with ID: " + id);
         adminService.deleteCharacter(id);
         return "redirect:/admin/characters";
     }
 
     @GetMapping("/characters/delete/all")
-    public String deleteAllCharacter(){
+    public String deleteAllCharacter() {
         System.out.println("Deleting character with ID: ");
         adminService.deleteAllCharacters();
         return "redirect:/admin/characters";
