@@ -49,7 +49,7 @@ public class CharService {
     }
 
     public void deleteChar(Integer id){
-        charRepository.delete(charRepository.findById(id));
+        charRepository.deleteById(id);
     }
 
     public void deleteAllChars(){
