@@ -32,11 +32,11 @@ public class WebController {
     }
 
     @GetMapping("/characters")
-    public String showAllCharacters(Model model) {
+    public String shows(Model model) {
         if (charService.getAllChars() == null) {
             return "characterlistempty";
         } else {
-            model.addAttribute("AllCharacter", charService.getAllChars());
+            model.addAttribute("", charService.getAllChars());
             return "characterlist";
         }
     }

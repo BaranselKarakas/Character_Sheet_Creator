@@ -7,7 +7,7 @@
 <body>
 <h1> Character List </h1>
 
-<div th:each="character : ${AllCharacter}">
+<div th:each="character : ${}">
     <a th:href="@{'/characters/' + ${character.id}}"><span th:text="'Character ' + ${character.name}"></span></a>
     <a th:href="@{'/admin/characters/delete/' + ${character.id}}"
        onclick="return confirm('Are you sure you want to delete this Character?')">
