@@ -1,24 +1,24 @@
 package com.baran.charactersheetcreator.service;
 
+import com.baran.charactersheetcreator.repository.CharRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AdminService {
 
-    private final CharService charService;
+    private final CharRepository charRepository;
 
     @Autowired
-    public AdminService(CharService charService) {
-        this.charService = charService;
+    public AdminService(CharRepository charRepository) {
+        this.charRepository = charRepository;
     }
 
-    public void deleteCharacter(int id) {
-        charService.deleteChar(id);
-        System.out.println("Funkt");
+    public void deleteChar(Integer id) {
+        charRepository.deleteById(id);
     }
 
-    public void deleteAllCharacters() {
-        charService.deleteAllChars();
+    public void deleteAllChars() {
+        charRepository.deleteAll();
     }
 }

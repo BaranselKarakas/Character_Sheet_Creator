@@ -5,8 +5,6 @@ import com.baran.charactersheetcreator.repository.CharRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-
 
 @Service
 public class CharService {
@@ -35,14 +33,6 @@ public class CharService {
             }
         }
         return null;
-    }
-
-    public void deleteChar(Integer id) {
-        charRepository.deleteById(id);
-    }
-
-    public void deleteAllChars() {
-        charRepository.deleteAll();
     }
 
 }
