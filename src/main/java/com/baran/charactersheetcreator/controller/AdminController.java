@@ -15,13 +15,16 @@ public class AdminController {
 
     private final AdminService adminService;
 
+    private final CharService charService;
+
     @Autowired
-    public AdminController(AdminService adminService) {
+    public AdminController(AdminService adminService, CharService charService) {
         this.adminService = adminService;
+        this.charService = charService;
     }
 
     @GetMapping("/characters")
-    public String showAllCharacters(Model model, CharService charService) {
+    public String showAllCharacters(Model model) {
         if (charService.getAllChars() == null) {
             return "characterlistempty";
         } else {
@@ -33,14 +36,14 @@ public class AdminController {
     @GetMapping("/characters/delete/{id}")
     public String deleteCharacter(@PathVariable int id) {
         System.out.println("Deleting character with ID: " + id);
-        adminService.deleteCharacter(id);
+        adminService.deleteChar(id);
         return "redirect:/admin/characters";
     }
 
     @GetMapping("/characters/delete/all")
     public String deleteAllCharacter() {
         System.out.println("Deleting character with ID: ");
-        adminService.deleteAllCharacters();
+        adminService.deleteAllChars();
         return "redirect:/admin/characters";
     }
 
