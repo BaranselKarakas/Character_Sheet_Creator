@@ -27,7 +27,6 @@ public class WebController {
 
     @PostMapping("/")
     public String createCharacter(Character character, Model model) {
-        character.setId(charService.getCounter());
         charService.addCharacter(character);
         return "redirect:/characters/" + character.getId();
     }

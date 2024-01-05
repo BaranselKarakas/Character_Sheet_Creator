@@ -14,32 +14,21 @@ public class CharService {
     private final CharRepository charRepository;
 
     @Autowired
-    public CharService(CharRepository charRepository){
+    public CharService(CharRepository charRepository) {
         this.charRepository = charRepository;
     }
 
-    private static int counter = 0;
-    static ArrayList<Character> charList = new ArrayList<>();
-
-    public int getCounter() {
-        return counter;
-    }
-
-    public int getCounterMinusOne(){
-        return counter - 1;
-    }
 
     public Iterable<Character> getAllChars() {
         return charRepository.findAll();
     }
 
 
-    public void addCharacter(Character character){
+    public void addCharacter(Character character) {
         charRepository.save(character);
-        counter++;
     }
 
-    public Character getCharById(Integer id){
+    public Character getCharById(Integer id) {
         for (Character character : charRepository.findAll()) {
             if (character.getId() == id) {
                 return character;
@@ -48,11 +37,11 @@ public class CharService {
         return null;
     }
 
-    public void deleteChar(Integer id){
+    public void deleteChar(Integer id) {
         charRepository.deleteById(id);
     }
 
-    public void deleteAllChars(){
+    public void deleteAllChars() {
         charRepository.deleteAll();
     }
 
