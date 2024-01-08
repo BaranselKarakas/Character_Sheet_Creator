@@ -26,7 +26,7 @@ public class AdminController {
     }
 
     @GetMapping("/characters")
-    public String showallCharacters(Model model) {
+    public String showAllCharacters(Model model) {
         if (IterableUtils.isEmpty(charService.getAllChars())) {
             return "characterlistempty";
         } else {
