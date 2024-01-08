@@ -2,6 +2,7 @@ package com.baran.charactersheetcreator.controller;
 
 import com.baran.charactersheetcreator.domain.Character;
 import com.baran.charactersheetcreator.service.CharService;
+import org.apache.commons.collections4.IterableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +34,7 @@ public class WebController {
 
     @GetMapping("/characters")
     public String showallCharacters(Model model) {
-        if (charService.getAllChars() == null) {
+        if (IterableUtils.isEmpty(charService.getAllChars())) {
             return "characterlistempty";
         } else {
             model.addAttribute("allCharacter", charService.getAllChars());
