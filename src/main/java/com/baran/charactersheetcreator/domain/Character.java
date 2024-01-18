@@ -17,7 +17,7 @@ public class Character {
     private int intelligence = 1;
 
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
