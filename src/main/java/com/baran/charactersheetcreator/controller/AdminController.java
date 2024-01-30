@@ -3,7 +3,6 @@ package com.baran.charactersheetcreator.controller;
 import com.baran.charactersheetcreator.service.AdminService;
 import com.baran.charactersheetcreator.service.CharService;
 import org.apache.commons.collections4.IterableUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
