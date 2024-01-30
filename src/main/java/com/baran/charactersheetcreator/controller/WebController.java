@@ -33,7 +33,7 @@ public class WebController {
 
     @GetMapping("/characters")
     public String showAllCharacters(Model model) {
-        if (IterableUtils.isEmpty(charService.getAllChars())) {
+        if (charService.getAllChars().isEmpty()) {
             return "characterlistempty";
         } else {
             model.addAttribute("allCharacter", charService.getAllChars());
