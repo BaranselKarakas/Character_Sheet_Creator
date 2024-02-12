@@ -12,7 +12,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 public class InMemoryAuthWebSecurityConfiguration {
         @Bean
         public InMemoryUserDetailsManager userDetailsService() {
-            PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+            PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder(); // password encoder is necessary since spring security 5: https://www.baeldung.com/spring-security-5-default-password-encoder
             UserDetails admin = User.withUsername("admin")
                     .password(encoder.encode("password"))
                     .roles("USER")
