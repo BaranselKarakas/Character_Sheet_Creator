@@ -16,10 +16,14 @@ public class UserDetails {
                 .password(encoder.encode("password"))
                 .roles("ADMIN", "USER")
                 .build();
-        org.springframework.security.core.userdetails.UserDetails user = User.withUsername("user")
+        org.springframework.security.core.userdetails.UserDetails user1 = User.withUsername("user1")
                 .password(encoder.encode("password"))
                 .roles("USER")
                 .build();
-        return new InMemoryUserDetailsManager(admin, user);
+        org.springframework.security.core.userdetails.UserDetails user2 = User.withUsername("user2")
+                .password(encoder.encode("password"))
+                .roles("USER")
+                .build();
+        return new InMemoryUserDetailsManager(admin, user1, user2);
     }
 }
