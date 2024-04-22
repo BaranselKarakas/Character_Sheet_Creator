@@ -10,6 +10,7 @@ public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    private String userId;
     private String name;
     private String charClass;
     private int strength = 1;

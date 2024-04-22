@@ -5,6 +5,8 @@ import com.baran.charactersheetcreator.repository.CharRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class CharService {
@@ -21,6 +23,10 @@ public class CharService {
         return charRepository.findAll();
     }
 
+    public List<Character> getAllCharsByUserId(String userId) {
+        return charRepository.findAllByUserId(userId);
+    }
+
 
     public void addCharacter(Character character) {
         charRepository.save(character);
@@ -29,5 +35,4 @@ public class CharService {
     public Character getCharById(Integer id) {
         return charRepository.findById(id).orElse(null);
     }
-
 }
