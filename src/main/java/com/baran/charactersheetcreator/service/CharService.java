@@ -1,37 +1,35 @@
 package com.baran.charactersheetcreator.service;
 
 import com.baran.charactersheetcreator.domain.Character;
+import com.baran.charactersheetcreator.repository.CharRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
 public class CharService {
 
-    static ArrayList<Character> charList = new ArrayList<>();
-    private static int counter = 0;
+    private final CharRepository charRepository;
 
-    public static ArrayList<Character> getCharList() {
-        return charList;
+    @Autowired
+    public CharService(CharRepository charRepository) {
+        this.charRepository = charRepository;
     }
 
-    public static Character getCharById(int id) {
-        for (Character character : getCharList()) {
-            if (character.getId() == id) {
-                return character;
-            }
-        }
-        return null;
+
+    public List<Character> getAllChars() {
+        return charRepository.findAll();
     }
 
-    public int getCounter() {
-        return counter;
-    }
 
     public void addCharacter(Character character) {
-        getCharList().add(character);
-        counter++;
+        charRepository.save(character);
+    }
+
+    public Character getCharById(Integer id) {
+        return charRepository.findById(id).orElse(null);
     }
 
 }

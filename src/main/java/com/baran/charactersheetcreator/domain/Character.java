@@ -1,8 +1,15 @@
 package com.baran.charactersheetcreator.domain;
 
-public class Character {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-    private int id;
+@Entity(name = "Characters")
+public class Character {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String name;
     private String charClass;
     private int strength = 1;
@@ -10,7 +17,7 @@ public class Character {
     private int intelligence = 1;
 
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
